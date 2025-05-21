@@ -13,8 +13,11 @@ def feedback(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('thank_you')
     else:
         form = FeedbackForm()
 
     return render(request, 'main/feedback.html', {'form': form})
+
+def thank_you(request):
+    return render(request, 'main/thank_you.html')
